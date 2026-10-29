@@ -1,0 +1,22 @@
+{
+  "name": "tasknest-schemas",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "default": "./src/index.ts"
+    }
+  },
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch --preserveWatchOutput"
+  },
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "zod": "^4.6.7"
+  }
+}
