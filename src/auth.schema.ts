@@ -1,30 +1,30 @@
 import z from "zod";
 
-export const userSchema = z.object({
+export const zUser = z.object({
   id: z.int(),
   name: z.string().nonempty(),
   email: z.email(),
   password: z.string().min(8)
 })
-export type User = z.infer<typeof userSchema>
+export type User = z.infer<typeof zUser>
 
-export const loginSchema = userSchema.omit({
+export const zLoginData = zUser.omit({
   id: true,
   name: true
 })
-export type LoginData = z.infer<typeof loginSchema>
+export type LoginData = z.infer<typeof zLoginData>
 
-export const signupSchema = userSchema.omit({
+export const zSignupData = zUser.omit({
   id: true
 })
-export type SignupData = z.infer<typeof signupSchema>
+export type SignupData = z.infer<typeof zSignupData>
 
-export const userResponseSchema = userSchema.omit({
+export const zUserResponse = zUser.omit({
   password: true
 })
-export type UserResponse = z.infer<typeof userResponseSchema>
+export type UserResponse = z.infer<typeof zUserResponse>
 
-export const jwtResponseSchema = z.object({
+export const zJwtResponse = z.object({
   accessToken: z.jwt()
 })
-export type JwtResponse = z.infer<typeof jwtResponseSchema>
+export type JwtResponse = z.infer<typeof zJwtResponse>

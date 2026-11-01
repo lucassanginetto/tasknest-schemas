@@ -1,21 +1,21 @@
 import z from "zod"
 
-export const taskStatusSchema = z.union([z.literal('TODO'), z.literal('IN_PROGRESS'), z.literal('COMPLETED')])
-export type TaskStatus = z.infer<typeof taskStatusSchema>
+export const zTaskStatus = z.union([z.literal('TODO'), z.literal('IN_PROGRESS'), z.literal('COMPLETED')])
+export type TaskStatus = z.infer<typeof zTaskStatus>
 
-export const taskSchema = z.object({
+export const zTask = z.object({
   id: z.int(),
   title: z.string().nonempty(),
   description: z.string(),
-  status: taskStatusSchema
+  status: zTaskStatus
 })
-export type Task = z.infer<typeof taskSchema>
+export type Task = z.infer<typeof zTask>
 
-export const createTaskSchema = taskSchema.omit({ id: true })
-export type TaskCreationData = z.infer<typeof createTaskSchema>
+export const zTaskCreationData = zTask.omit({ id: true })
+export type TaskCreationData = z.infer<typeof zTaskCreationData>
 
-export const updateTaskSchema = createTaskSchema.partial()
-export type TaskUpdateData = z.infer<typeof updateTaskSchema>
+export const zTaskUpdateData = zTaskCreationData.partial()
+export type TaskUpdateData = z.infer<typeof zTaskUpdateData>
 
-export const taskResponseSchema = taskSchema
-export type TaskResponse = z.infer<typeof taskResponseSchema>
+export const zTaskResponse = zTask
+export type TaskResponse = z.infer<typeof zTaskResponse>
