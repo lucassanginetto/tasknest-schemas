@@ -12,8 +12,8 @@
   },
   "private": true,
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch --preserveWatchOutput",
+    "build": "bun tsc",
+    "dev": "bun tsc --watch --preserveWatchOutput",
     "prepare": "bun run build"
   },
   "types": "./dist/index.d.ts",
