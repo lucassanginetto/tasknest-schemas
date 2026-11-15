@@ -14,7 +14,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch --preserveWatchOutput",
-    "prepare": "bun run build"
+    "prepare": "tsc"
   },
   "types": "./dist/index.d.ts",
   "peerDependencies": {
