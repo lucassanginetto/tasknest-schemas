@@ -14,7 +14,7 @@
   "scripts": {
     "build": "bunx tsc",
     "dev": "bunx tsc --watch --preserveWatchOutput",
-    "prepare": "bun run build"
+    "prepare": "bunx --package typescript tsc"
   },
   "types": "./dist/index.d.ts",
   "peerDependencies": {
